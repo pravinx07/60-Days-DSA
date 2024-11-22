@@ -75,4 +75,21 @@ let double = num.map((item)=>item*2)   //map required callback
     console.log(even);
     
     
+/ 14. Write a program to use the reduce() method to calculate the sum of an array of numbers.
 
+let nums = [2,3,5,6,5]
+let sum = nums.reduce((acc,cur)=> acc + cur , 0)
+console.log(sum);
+
+// double element
+let double = nums.map((num)=>num * 2)
+console.log(double);
+
+// finding max value
+let max = 0
+for(let i = 0; i < nums.length; i++){
+// let max = 0
+if(nums[i] > max)
+    max = nums[i]
+}
+console.log('Max:',max);
