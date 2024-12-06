@@ -154,3 +154,107 @@ if(nums[i] > max)
     max = nums[i]
 }
 console.log('Max:',max);
+
+
+
+
+
+
+
+
+
+const arr = [1,2,4,5,6]
+
+const myArr = arr.map(arr => arr*2)
+console.log(myArr);
+
+const newName =["hello", "world", "javascript"]
+
+let myname = newName.map(newName=> newName.toUpperCase())
+console.log(myname);
+
+const people = [
+    {name:"Alice", age:21},
+    {name:"Bob", age:30},
+    {name:"Charlie", age :32}
+
+]
+
+const myPeople = people.map(people=> people.name.toUpperCase())
+
+
+const number = [1,2,3,4,5,6,7,8,9,10]
+
+const muNumber = number.map(number=>number*number)
+console.log(muNumber)
+
+
+const string = ["hello", "world", "javascript"]
+
+const myNewString = string.map(string=> string + "!")
+console.log(myNewString);
+
+const num = [1,2,3,4,5]
+
+const sum = num.reduce((acc, curr)=> acc+curr)
+
+console.log(sum);
+
+const num =[1,3,4,5,6]
+
+const myNum = num.reduce((sum, num)=> sum+num,0)
+console.log(myNum);
+
+
+const num = [1,2,3,4,5]
+
+const myNum = num.reduce((mul,num)=>mul*num,3
+)
+
+console.log(myNum);
+
+const num = [3,4,2,6,9]
+
+const maxNum = num.reduce((max,num)=> (num>max?num:max),10)
+console.log(maxNum);
+
+const arr = [[1,3],[4,5],[9,4],[3,4]]
+
+const mynew = arr.reduce((mix,arr)=> mix.concat(arr))
+console.log(mynew);
+
+const arr = [[1,4],[3,5],[5,4],5,6]
+
+const myArr = arr.reduce((mix,arr)=>mix.concat(arr))
+console.log(myArr);
+
+const num = [2,4,1,4,5,9,7]
+
+const myNum = num.reduce((evn,num)=>evn+num)
+console.log(myNum);
+
+const num = [1,2,3,4,5]
+const double = num.map(num=>num*num)
+console.log(double);
+
+const string = ["hello", "world","javascrpt"]
+let myString = string.map(string=>string.toUpperCase())
+console.log(myString);
+
+const  string = [
+    {name:"Alice",age:32},
+    {name:"bob", age:21},
+    {name:"Charlie",age:32}
+]
+
+const myString = string.map(string=>string.name)
+console.log(myString);
+
+const num = [1,2,4,5,6]
+ const sqr = num.map(num=>num*num)
+ console.log(sqr);
+
+const string = ["hello","world","js"]
+let myStr = string.map(string=>string+"!")
+console.log(myStr);
+
