@@ -280,28 +280,71 @@ console.log(result);*/
 
 // 10. write a program to find highest value in the obj
 
-function findMaxValue(obj)
-{
-    let max = 0
-  for(let key in obj){
+// function findMaxValue(obj)
+// {
+//     let max = 0
+//   for(let key in obj){
     
-    let value = obj[key]
-    if(value > max) {
-        max = value
-    }
+//     let value = obj[key]
+//     if(value > max) {
+//         max = value
+//     }
     
-  }
-  return max
+//   }
+//   return max
+// }
+
+// const obj = {
+//     a:2,
+//     b:1,
+//     c:5,
+//     d:10,
+//     e:20
+//  }
+
+//  let result = findMaxValue(obj)
+//  console.log(result);
+ 
+
+
+// for(let i = 1; i <= 10; i ++){
+//   console.log(`Outer Loop ${i}`);
+//   for(let j = 1; j <=10; j++){
+//    console.log(i + "*" + j + "=" + i * j);
+   
+//   }
+  
+   
+// }
+
+// const myArr = ["Pravin","ajay","vijay","raj","priya"]
+
+// for(let i = 0; i < myArr.length; i++){
+//    console.log(myArr[i]);
+//    if(myArr[i] === "ajay"){
+//       // console.log(myArr[i]);
+//       break
+      
+//    }
+//    // console.log(myArr[i]);
+   
+   
+// }
+
+// for(let i = 1; i <= 100; i++){
+//    let sum = 0
+//    sum = sum + i
+//    console.log(sum);
+   
+// }
+
+
+for(let i = 0; i < 5; i++){
+   console.log(i++);
+   
 }
 
-const obj = {
-    a:2,
-    b:1,
-    c:5,
-    d:10,
-    e:20
- }
-
- let result = findMaxValue(obj)
- console.log(result);
- 
+let i = 0;
+while (i < 10) {
+    console.log(i);
+}
