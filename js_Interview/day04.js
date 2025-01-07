@@ -12,7 +12,7 @@
   3^3 = 27
   now add this number 1 + 125 + 27 =  153
  */
-/*
+
 function checkArmstrong(number){
   // for total number of ditgit no. convert into string
 
@@ -42,7 +42,7 @@ function checkArmstrong(number){
 checkArmstrong(153)
 checkArmstrong(146)
 checkArmstrong(9474)
-*/
+
 
 
 
@@ -55,7 +55,7 @@ checkArmstrong(9474)
 // split("") it is string method for converting string to array 
 // now convert this number into string so we can use split()
 
-/*
+
 function isPalindrome(n){
     let numstr = n.toString()  // convert to string 
     let reversStr = numstr.split("").reverse().join("")  // string to array , reverse the arr and join arr 
@@ -76,4 +76,4 @@ function isPalindrome(n){
 
 isPalindrome(121)
 isPalindrome(1214)
-*/
+
