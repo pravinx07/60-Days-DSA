@@ -18,4 +18,13 @@ function printPattern(n){
  }
  
 }
-printPattern(10)
+printPattern(5)
+
+
+/* 
+     *
+    **
+   ***
+  ****
+ *****
+ */
