@@ -340,11 +340,12 @@ console.log(result);*/
 
 
 for(let i = 0; i < 5; i++){
-   console.log(i++);
-   
-}
-
-let i = 0;
-while (i < 10) {
-    console.log(i);
-}
+    console.log(i++);
+    
+ }
+ 
+ let i = 0;
+ while (i < 10) {
+     console.log(i);
+ }
+ 
