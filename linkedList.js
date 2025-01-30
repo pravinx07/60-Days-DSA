@@ -1,6 +1,6 @@
 // Linked List
 
-class Node {
+class Node {     // node  
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -123,7 +123,7 @@ linkedList.addFirst(4);
 linkedList.addFirst(3);
 linkedList.addFirst(2);
 linkedList.addLast(8);
-linkedList.removeAt(1)
+linkedList.removeAt(1);
 
 linkedList.print();
 console.log(linkedList.size());
