@@ -136,6 +136,23 @@ class LinkedList {
     }
     return sum; // Return the total sum
   }
+
+  // reverse linkedlist
+
+  reverse() {
+    let prev = null;
+    let current = this.head;
+    let next = null;
+
+    while (current !== null) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+  }
 }
 
 const linkedList = new LinkedList();
@@ -143,8 +160,10 @@ linkedList.addFirst(5);
 linkedList.addFirst(4);
 linkedList.addFirst(3);
 linkedList.addFirst(2);
-linkedList.addLast(8);
-linkedList.removeAt(1);
-
+linkedList.addLast(6);
+linkedList.addAt(5, 1);
 linkedList.print();
+
 console.log("Sum of list is", linkedList.sum());
+console.log("reverese linkedlist ", linkedList.reverse());
+// linkedList.print()
