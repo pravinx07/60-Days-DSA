@@ -98,7 +98,7 @@ console.log(findMinimum([4,5,6,7,0,1,2]));
 */
 
 // using binary search
-
+/*
 var findMin = function(nums) {
     let n = nums.length;
     let low = 0;
@@ -123,4 +123,46 @@ var findMin = function(nums) {
 };
 console.log(findMin([4,5,6,7,0,1,2]));
 console.log(findMin([3,4,5,1,2]));
+*/
 
+
+// Find Kth Rotation
+
+function findNumberOfRotation(arr){
+    let n = arr.length;
+    let low = 0;
+    let high = n - 1
+    let ans = Infinity
+    let index = -1;
+
+    while(low <= high){
+        let mid = Math.floor((low + high) / 2);
+
+        if(arr[low] <= arr[high]){
+            if(arr[low] < ans){
+                index = low
+                ans = arr[low]
+            }
+            break;
+        }
+
+        if(arr[low] <= arr[mid]){
+            if(arr[low] < ans){
+                index = low
+                ans = arr[low]
+            }
+            low = mid + 1
+        }else{
+            
+            if(arr[mid] < ans){
+                index = mid;
+                ans = arr[mid]
+            }
+            high = mid - 1;
+        }
+    }
+    return index;
+
+    
+}
+console.log(findNumberOfRotation([5,6, 1, 2, 3, 4]));
