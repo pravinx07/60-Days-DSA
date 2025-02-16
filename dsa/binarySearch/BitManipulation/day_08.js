@@ -3,7 +3,7 @@
 // func should return the number of times the specified
 // character appear in the string
 
-
+/*
 function countChar(str, char) {
     str = str.toLowerCase();
     char = char.toLowerCase();
@@ -22,3 +22,16 @@ function countChar(str, char) {
   }
   
   console.log(countChar("helllo", "L"));
+  */
+
+  // write a program to access the keys of the objects using loop
+const myObj = {
+    subject:"Math",
+    mark:90,
+    sem:"5th"
+}
+
+for(let key in myObj){
+    console.log(key);
+    
+}
