@@ -24,7 +24,8 @@ function countChar(str, char) {
   console.log(countChar("helllo", "L"));
   */
 
-  // write a program to access the keys of the objects using loop
+//   write a program to access the keys of the objects using loop
+/*
 const myObj = {
     subject:"Math",
     mark:90,
@@ -35,3 +36,37 @@ for(let key in myObj){
     console.log(key);
     
 }
+    */
+
+// 3. write a program to check 2 obj are equal
+
+ function objCheck(obj1,obj2){
+  let keys1 = Object.keys(obj1)
+  let keys2 = Object.keys(obj2)
+//   console.log(keys1,keys2);
+
+  if(keys1.length !== keys2.length) return false;
+ 
+  for(let key in obj1){
+    if(obj1[key] !== obj2[key]) return false
+  }
+  
+ 
+   return true;
+ }
+
+ const obj1 = {
+    name:"Pravin",
+    lName:"SDE3"
+
+ }
+ const obj2 = {
+    name:"Pravin",
+    lName:"SDE2"
+
+ }
+
+
+ let result = objCheck(obj1,obj2)
+ console.log(result);
+ 
