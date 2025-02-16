@@ -1,6 +1,6 @@
 // converting decimal to binary
 
-/*
+
 function decimalToBinary(n){
     res = ""
     while(n > 0){
@@ -16,7 +16,7 @@ function decimalToBinary(n){
 
 console.log(decimalToBinary(10));
 console.log(decimalToBinary(11));
-*/
+
 
 // binary to decimal
 
@@ -65,7 +65,7 @@ Explanation: The array represents the integer 123.
 Incrementing by one gives 123 + 1 = 124.
 Thus, the result should be [1,2,4]
 */
-
+/*
 function plusOne(arr){
     // return arr
     // sum = 0
@@ -84,4 +84,4 @@ function plusOne(arr){
     
     
 }
-console.log(plusOne([1,2,3]));
+console.log(plusOne([1,2,3]));*/
