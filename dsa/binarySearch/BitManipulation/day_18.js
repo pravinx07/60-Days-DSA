@@ -40,13 +40,19 @@ function isPalindrome(x){
     let original = x;
 
     while (original > reversed) {
+     
         reversed = reversed * 10 + (original % 10);
+        console.log("first reversed",reversed);
+        
         original = Math.floor(original / 10);
+        console.log("first original :",original);
+        
+        
     }
 
     return original === reversed || original === Math.floor(reversed / 10);  
-}
-console.log(isPalindrome(121));
-console.log(isPalindrome(131));
-console.log(isPalindrome(-121));
-console.log(isPalindrome(10));
+} 
+console.log(isPalindrome(121)); 
+// console.log(isPalindrome(131));
+// console.log(isPalindrome(-121));
+// console.log(isPalindrome(10));
