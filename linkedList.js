@@ -1,169 +1,139 @@
 class Node {
-  constructor(data) {
-    this.data = data; // Stores the data for the node
-    this.next = null; // Points to the next node (initially null)
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
   }
 }
 
 class LinkedList {
   constructor() {
-    this.head = null; // The first node in the list (initially null)
+    this.head = null;
+    this.size = 0;
   }
 
-  addFirst(data) {
-    const newNode = new Node(data); // Create a new node
-    newNode.next = this.head; // Point the new node to the current head
-    this.head = newNode; // Update the head to the new node
+  // insert first node
+
+  insertFirst(data) {
+    this.head = new Node(data, this.head);
+    this.size++;
   }
 
-  addLast(data) {
-    const newNode = new Node(data); // Create a new node
+  // insert last
 
+  insertLast(data) {
+    let node = new Node(data);
+    let current;
+
+    // if empty make head
     if (!this.head) {
-      // If the list is empty
-      this.head = newNode; // Set the new node as the head
-      return;
-    }
+      this.head = node;
+    } else {
+      current = this.head;
 
-    let current = this.head; // Start from the head
-    while (current.next) {
-      // Traverse to the last node
-      current = current.next;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
     }
-    current.next = newNode; // Add the new node at the end
+    this.size++;
   }
 
-  size() {
-    let count = 0;
-    let current = this.head; // Start from the head
+  // insert at index
+     insertAt(data,index){
+      if(index>0 && index > this.size){
+        return
+      }
+
+      // if first index
+      if(index === 0){
+       this.head = new Node(data, this.head)
+       return
+      }
+
+      const node = new Node(data)
+      let current,previous
+
+      // set current to first
+      current = this.head
+      let count = 0
+
+      while(count < index){
+        previous = current  // node bfor index
+        count++
+        current = current.next  // node after index
+      }
+      node.next = current;
+      previous.next = node
+
+      this.size++
+     }
+
+ // get at index
+
+ getAt(index){
+   let current = this.head
+   let count = 0
+   
+   while(current){
+    if(count == index){
+      console.log(current.data);
+      
+    }
+    count++
+    current = current.next
+   }
+   return null
+ }
+
+
+ // remove at index
+   removeAt(index){
+    if(index>0 && index > this.size){
+      return
+    }
+
+    let current = this.head
+    let previous;
+    let count = 0
+
+
+    if(index == 0){
+      this.head = current.next
+    }else{
+      while(count < index){
+        count++
+        previous = current
+        current = current.next
+      }
+      previous.next = current.next
+    }
+    this.size++
+   }
+
+   // clear list
+   clearList(){
+    this.head = null
+    this.size = 0
+   }
+
+  // print list
+  printListData() {
+    let current = this.head; // current on head
+
     while (current) {
-      // Traverse the list
-      count++;
+      console.log(current.data);
       current = current.next;
     }
-    return count; // Return the total number of nodes
-  }
-
-  addAt(index, data) {
-    if (index < 0 || index > this.size()) {
-      // Check for invalid index
-      console.error("Invalid index");
-      return;
-    }
-
-    const newNode = new Node(data); // Create a new node
-
-    if (index === 0) {
-      // If adding at the beginning
-      newNode.next = this.head;
-      this.head = newNode;
-      return;
-    }
-
-    let current = this.head; // Start from the head
-    for (let i = 0; i < index - 1; i++) {
-      // Traverse to the node before the index
-      current = current.next;
-    }
-
-    newNode.next = current.next; // Insert the new node
-    current.next = newNode;
-  }
-
-  removeTop() {
-    if (!this.head) {
-      // If the list is empty
-      return;
-    }
-    this.head = this.head.next; // Remove the head by pointing to the next node
-  }
-
-  removeLast() {
-    if (!this.head) {
-      // If the list is empty
-      return;
-    }
-
-    let current = this.head; // Start from the head
-    while (current.next.next) {
-      // Traverse to the second-last node
-      current = current.next;
-    }
-    current.next = null; // Remove the last node
-  }
-
-  removeAt(index) {
-    if (index < 0 || index > this.size()) {
-      // Check for invalid index
-      console.error("Invalid index");
-      return;
-    }
-
-    if (index === 0) {
-      // If removing the head
-      this.head = this.head.next;
-      return;
-    }
-
-    let current = this.head; // Start from the head
-    for (let i = 0; i < index - 1; i++) {
-      // Traverse to the node before the index
-      current = current.next;
-    }
-
-    if (current.next) {
-      // Remove the node at the specified index
-      current.next = current.next.next;
-    }
-  }
-
-  print() {
-    let current = this.head; // Start from the head
-    while (current) {
-      // Traverse the list
-      console.log(current.data); // Print the data of each node
-      current = current.next;
-    }
-  }
-
-  sum() {
-    let sum = 0;
-    let current = this.head; // Start from the head
-    while (current) {
-      // Traverse the list
-      sum += current.data; // Add the data of each node
-      current = current.next;
-    }
-    return sum; // Return the total sum
-  }
-
-  // reverse linkedlist
-
-  reverse() {
-    let prev = null;
-    let current = this.head;
-    let next = null;
-
-    while (current !== null) {
-      next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
-    }
-
-    this.head = prev;
   }
 }
 
-const linkedList = new LinkedList();
-linkedList.addFirst(5);
-linkedList.addFirst(4);
-linkedList.addFirst(3);
-linkedList.addFirst(2);
-linkedList.addLast(6);
-linkedList.addAt(5, 1);
-linkedList.print();
+const ll = new LinkedList();
+ll.insertFirst(300);
+ll.insertFirst(200);
+ll.insertFirst(100);
+ll.insertLast(400);
+ll.clearList()
+// ll.insertAt(500,0)
+// console.log(ll);
 
-console.log("Sum of list is", linkedList.sum());
-console.log("reverese linkedlist ", linkedList.reverse());
-// linkedList.print()
+ll.printListData();
