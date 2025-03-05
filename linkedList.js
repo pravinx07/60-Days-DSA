@@ -27,6 +27,37 @@ class LinkedList{
     this.length++
   }
 
+  prepend(value){
+    let newNode = new Node(value)
+    newNode.next = this.head  // new Node points to current head
+    this.head = newNode  // update head
+    this.length++
+  }
+
+  // delete from the begining
+  deleteAtFirst(){
+    if(!this.head) return;
+
+    this.head = this.head.next
+    this.length--
+  }
+
+  pop(){
+    if(!this.head) return
+    if(this.head.next){
+      this.head = null
+    }else{
+      let temp = this.head
+      let prev = null
+
+      while(temp.next){
+        prev = temp
+        temp = temp.next
+      }
+      prev.next = null
+    }
+    this.length--
+  }
   print(){
     let temp = this.head
     let result = []
@@ -44,6 +75,9 @@ let list = new LinkedList()
 list.append(20)
 list.append(30)
 list.append(40)
+list.prepend(23)
+list.deleteAtFirst()
+// list.deleteAtEnd()
 // console.log(list);
 
 list.print()
