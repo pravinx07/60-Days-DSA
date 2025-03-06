@@ -58,6 +58,17 @@ class LinkedList{
     }
     this.length--
   }
+
+  // searching
+  search(value){
+    let temp = this.head
+    while(temp){
+      if(temp.value === value) return true
+      temp = temp.next
+    }
+    return false
+  }
+
   print(){
     let temp = this.head
     let result = []
@@ -76,8 +87,9 @@ list.append(20)
 list.append(30)
 list.append(40)
 list.prepend(23)
-list.deleteAtFirst()
+// list.search(20)
+// list.deleteAtFirst()
 // list.deleteAtEnd()
-// console.log(list);
+console.log(list.search(10));
 
 list.print()
