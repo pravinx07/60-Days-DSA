@@ -60,18 +60,25 @@ This is done intentionally to maintain the Last In, First Out (LIFO) behavior us
 
 let MyStack = function (){
    this.q1 = []  // main queue
-   this.q2 = []  // temprorily q2
+//    this.q2 = []  // temprorily q2
 }
 // 2 , 3, 4,5
 // q1 = [5] => [5,4,3,2]
 // q2 = [4,3,2] => []
 MyStack.prototype.push = function(value){
-    while(this.q1.length !== 0){
-        this.q2.push(this.q1.shift())
-    }
-    this.q1.push(value)
-    while(this.q2.length !== 0){
-        this.q1.push(this.q2.shift())
+    // while(this.q1.length !== 0){
+    //     this.q2.push(this.q1.shift())
+    // }
+    // this.q1.push(value)
+    // while(this.q2.length !== 0){
+    //     this.q1.push(this.q2.shift())
+    // }
+ // using one queue improve performance
+    this.q1.push(value); // Insert new element
+    let size = this.q1.length;
+    while (size > 1) {
+        this.q1.push(this.q1.shift()); // Rotate elements to bring new element to front
+        size--;
     }
 }
 MyStack.prototype.pop = function(){
@@ -89,4 +96,7 @@ stack.push(3)
 stack.push(4)
 stack.push(5)
 stack.pop()
-console.log(stack.top());
+
+console.log(stack.pop()); // Removes 5
+console.log(stack.top()); // 4
+console.log(stack.empty()); // false
