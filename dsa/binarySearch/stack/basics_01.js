@@ -5,7 +5,7 @@ bcos stack is close from one side
  */
 
 // stack using array
-
+/*
 class Stack{
     constructor() {
         this.items = []
@@ -51,3 +51,42 @@ stack.pop()
 console.log(stack.top());
 
 stack.print()
+*/
+
+/*Implement Stack using 2 queue
+This is done intentionally to maintain the Last In, First Out (LIFO) behavior using a queue, which follows First In, First Out (FIFO).
+ */
+
+
+let MyStack = function (){
+   this.q1 = []  // main queue
+   this.q2 = []  // temprorily q2
+}
+// 2 , 3, 4,5
+// q1 = [5] => [5,4,3,2]
+// q2 = [4,3,2] => []
+MyStack.prototype.push = function(value){
+    while(this.q1.length !== 0){
+        this.q2.push(this.q1.shift())
+    }
+    this.q1.push(value)
+    while(this.q2.length !== 0){
+        this.q1.push(this.q2.shift())
+    }
+}
+MyStack.prototype.pop = function(){
+    return this.q1.shift()
+}
+MyStack.prototype.top = function(){
+    return this.q1[0]
+}
+MyStack.prototype.empty = function(){
+    return this.q1.length === 0
+}
+
+let stack = new MyStack()
+stack.push(3)
+stack.push(4)
+stack.push(5)
+stack.pop()
+console.log(stack.top());

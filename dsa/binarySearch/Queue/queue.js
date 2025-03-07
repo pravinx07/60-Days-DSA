@@ -68,17 +68,15 @@ A circular queue is a special type of queue that wraps around when the rear reac
 rear
  */
 
-var MyCirculerQueue = function (k) {
-  // k => size of queue
+/*
+let MyCirculerQueue = function (k) {
   this.queue = [];
   this.size = k;
 };
 
 MyCirculerQueue.prototype.enQueue = function (value) {
   if (this.size === this.queue.length) return false;
-
-  this.queue.push(value);
-  return true;
+  return this.queue.push(value);
 };
 
 MyCirculerQueue.prototype.deQueue = function () {
@@ -94,26 +92,28 @@ MyCirculerQueue.prototype.front = function () {
 
 MyCirculerQueue.prototype.Rear = function () {
   if (this.queue.length === 0) return -1;
-
   return this.queue[this.queue.length - 1];
 };
 
-MyCirculerQueue.prototype.isEmpty = function(){
-   return this.queue.length === 0
-}
+MyCirculerQueue.prototype.isFull = function () {
+  return this.size === this.queue.length;
+};
 
-MyCirculerQueue.prototype.isFull = function(){
-    return this.size  === this.queue.length
-}
+MyCirculerQueue.prototype.isEmpty = function () {
+  return this.queue.length === 0;
+};
 
-//[2,3,10]
-let obj = new MyCirculerQueue(3)
-obj.enQueue(1)
-obj.enQueue(2)
-obj.enQueue(3)
-obj.deQueue()
-obj.enQueue(10)
+let queue = new MyCirculerQueue(5);
+queue.enQueue(10);
+queue.enQueue(20);
+queue.enQueue(30);
+queue.enQueue(40);
+queue.enQueue(50);
+queue.deQueue();
+queue.deQueue();
+queue.deQueue();
+queue.deQueue();
+console.log(queue.front(), queue.Rear());
+*/
 
 
-
-console.log(obj.front(), obj.Rear());
