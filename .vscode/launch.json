@@ -13,7 +13,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\GFG\\problem_01.js"
+            "program": "${workspaceFolder}\\dsa\\binarySearch\\stack\\basics.js"
         }
     ]
 }
