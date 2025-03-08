@@ -120,7 +120,7 @@ console.log(queue.front(), queue.Rear());
 /*Implement queue using Stacks
 
  */
-
+/*
 let MyQueue = function () {
   this.stack1 = []
   this.stack2 = []
@@ -181,6 +181,50 @@ console.log(quueue.front());
 console.log(quueue.rear());
 console.log(quueue);
 
+*/
 
 
+// implement stack using 1 stack
 
+let MyQueue = function(){
+  this.stack = []
+}
+
+MyQueue.prototype.enQueue = function(value){
+  return this.stack.push(value)
+}
+
+MyQueue.prototype.dequeue = function() {
+  return this.stack.shift()
+}
+
+MyQueue.prototype.front = function(){
+  if(this.stack.length === 0){
+    return false
+  }
+  return this.stack[0]
+}
+
+MyQueue.prototype.rear = function(){
+  if(this.stack.length === 0){
+    return false
+  }
+  return this.stack[this.stack.length - 1]
+}
+
+MyQueue.prototype.empty = function(){
+  return this.stack.length ? false : true
+}
+
+let queue = new MyQueue()
+queue.enQueue(10)
+queue.enQueue(20)
+queue.enQueue(30)
+queue.enQueue(40)
+queue.dequeue()
+queue.dequeue()
+console.log(queue.front());
+console.log(queue.rear());
+console.log(queue.empty());
+
+console.log(queue);
