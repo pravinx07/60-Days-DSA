@@ -1,9 +1,9 @@
-/*queue => woek on FIFO
+/*queue => work on FIFO
 first in firt out
-enqueue => adding the elemnt in the queue from back side
+enqueue => adding the elemnt in the queue from rear side
 dequeue() => taking out the element 
 peek => give the front element
-isEmpty => 
+isEmpty => length == 0
 size => size of the queue
 */
 // class Queue {
@@ -115,5 +115,72 @@ queue.deQueue();
 queue.deQueue();
 console.log(queue.front(), queue.Rear());
 */
+
+
+/*Implement queue using Stacks
+
+ */
+
+let MyQueue = function () {
+  this.stack1 = []
+  this.stack2 = []
+}
+
+MyQueue.prototype.enqueue = function(value){
+   this.stack1.push(value)
+}
+MyQueue.prototype.dequeue = function(){
+  if(this.stack2.length === 0){
+        while(this.stack1.length > 0){
+            this.stack2.push(this.stack1.pop())
+        }
+    }
+    return this.stack2.pop()
+}
+
+MyQueue.prototype.front = function () {
+    // if(this.stack1.length === 0) return false
+    if(this.stack2.length === 0){
+      while(this.stack2.length > 0){
+          this.stack2.push(this.stack1.pop())
+      }
+  }
+  return this.stack2[this.stack2.length - 1]
+}
+
+MyQueue.prototype.rear = function () {
+  // if(this.stack1.length === 0) return false
+  if(this.stack2.length === 0){
+    while(this.stack2.length > 0){
+        this.stack2.push(this.stack1.pop())
+    }
+}
+return this.stack2[0]
+}
+
+MyQueue.prototype.empty = function(){
+  return this.stack1.length === 0 && this.stack2.length === 0
+}
+
+
+let quueue = new MyQueue()
+
+quueue.enqueue(10)
+quueue.enqueue(20)
+quueue.enqueue(30)
+quueue.enqueue(40)
+quueue.dequeue()
+quueue.enqueue(50)
+quueue.enqueue(60)
+// quueue.dequeue()
+// quueue.dequeue()
+// quueue.dequeue()
+// quueue.dequeue()
+
+console.log(quueue.front());
+console.log(quueue.rear());
+console.log(quueue);
+
+
 
 
