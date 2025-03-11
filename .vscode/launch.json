@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         
+        
     
         {
             "type": "node",
@@ -13,7 +14,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\dsa\\binarySearch\\stack\\basics.js"
+            "program": "${workspaceFolder}\\dsa\\binarySearch\\stack\\problem_02.js"
         }
     ]
 }
