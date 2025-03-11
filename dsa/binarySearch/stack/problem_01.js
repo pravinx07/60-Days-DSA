@@ -18,7 +18,7 @@ function infixToPostfix(expression){
             stack.push(char)
         }
 
-         // if the character is a closingparenthisis, pop till '("
+         // if the character is a closing parenthisis, pop till '("
         else if(char === ")"){
             while(stack.length && stack[stack.length - 1] !== "("){
                 result += stack.pop()
