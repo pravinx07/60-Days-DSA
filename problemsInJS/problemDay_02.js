@@ -42,7 +42,7 @@ mergeData(12,3,45)
 */
 
 // 26 remove duplicate from sorted array
-
+/*
 function removeDuplicate(nums){
     let k = 1
     for(let i = 1; i < nums.length; i++){
@@ -56,4 +56,27 @@ function removeDuplicate(nums){
     
 }
 
-console.log(removeDuplicate([1,1,2]))
+console.log(removeDuplicate([1,1,2]))*/
+
+
+// reveresed string
+
+function reversedStr(str,start,end){
+  // let start = 0
+  // let end = str.length-1
+
+  while(start < end){
+    let temp = str[start]
+    str[start] = str[end]
+    str[end] = temp
+    start++
+    end--
+  }
+
+  
+}
+let arr = ["p","r","a","v","i","n"]
+let result = reversedStr(arr,0, arr.length-1)
+
+console.log("reversed String is: ",arr);
+
