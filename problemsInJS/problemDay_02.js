@@ -1,6 +1,5 @@
 // Merge both arrays and objects
 
-
 // wrieta js function that merges two objects or two arrays  print an error if the input are of different type
 
 // conditon 1 for array
@@ -58,25 +57,51 @@ function removeDuplicate(nums){
 
 console.log(removeDuplicate([1,1,2]))*/
 
-
 // reveresed string
 
-function reversedStr(str,start,end){
-  // let start = 0
-  // let end = str.length-1
+// function reversedStr(str,start,end){
+//   // let start = 0
+//   // let end = str.length-1
 
-  while(start < end){
-    let temp = str[start]
-    str[start] = str[end]
-    str[end] = temp
-    start++
-    end--
-  }
+//   while(start < end){
+//     let temp = str[start]
+//     str[start] = str[end]
+//     str[end] = temp
+//     start++
+//     end--
+//   }
 
+// }
+// let arr = ["p","r","a","v","i","n"]
+// let result = reversedStr(arr,0, arr.length-1)
+
+// console.log("reversed String is: ",arr);
+
+// write a js function that takes an array of numbers and rweturn the maximum and minimum number values
+/*
+function maxAndMin(arr) {
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  console.log(`Max Value in array is: ${max}`);
+  console.log(`Min Value in array is: ${min}`);
+}
+
+// console.log(maxAndMin([1,2,3,5]));
+maxAndMin([1, 2, 4, 58]);
+maxAndMin([1, 2, 4, -2]);
+*/
+
+
+
+//write a function that takes n numbers of numbers as an input return the max and min from this numbers
+
+function minAndMax(...arr){
+  console.log(arr);
+  
+  let max = Math.max(...arr)  // used spread operator bcos its rest convert into array
+  let min = Math.min(...arr)
+  console.log(`max : ${max}, min : ${min}`);
   
 }
-let arr = ["p","r","a","v","i","n"]
-let result = reversedStr(arr,0, arr.length-1)
 
-console.log("reversed String is: ",arr);
-
+minAndMax(1,23,4,6,7,9,789.86)
