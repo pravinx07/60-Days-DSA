@@ -27,5 +27,6 @@ function moveZeros(arr){
 }
 
 let arr = [1, 2, 0, 4, 3, 0, 5, 0];
-
+let arr2 = [3,0,2,0,1]
 console.log(moveZeros(arr))
+console.log(moveZeros(arr2))

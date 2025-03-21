@@ -59,23 +59,23 @@ console.log(removeDuplicate([1,1,2]))*/
 
 // reveresed string
 
-// function reversedStr(str,start,end){
-//   // let start = 0
-//   // let end = str.length-1
+function reversedStr(str,start,end){
+  // let start = 0
+  // let end = str.length-1
 
-//   while(start < end){
-//     let temp = str[start]
-//     str[start] = str[end]
-//     str[end] = temp
-//     start++
-//     end--
-//   }
+  while(start < end){
+    let temp = str[start]
+    str[start] = str[end]
+    str[end] = temp
+    start++
+    end--
+  }
 
-// }
-// let arr = ["p","r","a","v","i","n"]
-// let result = reversedStr(arr,0, arr.length-1)
+}
+let arr = ["p","r","a","v","i","n"]
+let result = reversedStr(arr,0, arr.length-1)
 
-// console.log("reversed String is: ",arr);
+console.log("reversed String is: ",arr);
 
 // write a js function that takes an array of numbers and rweturn the maximum and minimum number values
 /*
