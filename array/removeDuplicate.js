@@ -25,6 +25,7 @@ console.log(removeDuplicate(arr3));
 
 function removeDuplicate(arr){
     let n = arr.length
+    if(n === 0) return 0;
     let i = 0
     for(let j = 1; j < n; j++){
         if(arr[j] !== arr[i]){
@@ -37,10 +38,13 @@ function removeDuplicate(arr){
 
 let arr = [1,1,2,2,3,3]
 let arr1 = [1,1,1,1]
+let arr4 = []
 let arr3 = [0,0,1,1,1,2,2,3,3,4]
 console.log(removeDuplicate(arr));
 console.log(removeDuplicate(arr1));
 console.log(removeDuplicate(arr3));
+console.log(removeDuplicate(arr4));
+
 
 
 
