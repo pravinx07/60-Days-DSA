@@ -18,7 +18,7 @@ function rotateArr(arr){
 let arr = [1,2,3,4,5]
 let arr1 = [1]
 let arr2 = []
-console.log(rotateArr(arr));
-console.log(rotateArr(arr1));
+console.log("Array rotated: ",rotateArr(arr));
+console.log("Array rotated: ",rotateArr(arr1));
 console.log(rotateArr(arr2));
 // log
