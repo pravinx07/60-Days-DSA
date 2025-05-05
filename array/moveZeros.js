@@ -34,10 +34,12 @@ function moveZeros(arr){
     let n = arr.length;
     let j = -1;
 
+    if(j = -1) return arr
     for(let i = 0; i < n; i++){
         if(arr[i] === 0){
             j = i
             break
+            
         }
     }
     for(let i = j + 1; i < n; i++){
@@ -46,12 +48,16 @@ function moveZeros(arr){
             // arr[i] = arr[j]
             // arr[j] = temp
             [arr[i],arr[j]] = [arr[j],arr[i]]
+            
             j++
+            
         }
     }
     return arr
 }
 
 let arr = [1, 3, 0, 2, 4, 0, 3, 0, 2];
-moveZeros(arr);
-console.log("Move Zeros: ",arr);
+let arr1 = [0,0,1,2,3,0]
+let arr2 = [1,2,3,4,5]
+moveZeros(arr2);
+console.log("Move Zeros: ",arr2);
