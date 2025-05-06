@@ -30,34 +30,33 @@ console.log("Move Zeros: ",arr);
 
 //  optimal
 
-function moveZeros(arr){
-    let n = arr.length;
-    let j = -1;
+function moveZeros(arr) {
+  let n = arr.length;
+  let j = -1;
 
-    if(j = -1) return arr
-    for(let i = 0; i < n; i++){
-        if(arr[i] === 0){
-            j = i
-            break
-            
+  for (let i = 0; i < n; i++) {
+      if (arr[i] === 0) {
+          j = i;
+          break;
         }
     }
-    for(let i = j + 1; i < n; i++){
-        if(arr[i] !== 0){
-            // let temp = arr[i]
-            // arr[i] = arr[j]
-            // arr[j] = temp
-            [arr[i],arr[j]] = [arr[j],arr[i]]
+    if (j === -1) return arr; 
+    for (let i = j + 1; i < n; i++) {
+        if (arr[i] !== 0) {
+            let temp = arr[i]
+            arr[i] = arr[j]
+            arr[j] = temp
+            //   [arr[i], arr[j]] = [arr[j], arr[i]];
             
-            j++
-            
+            j++;
         }
     }
-    return arr
+    return arr;
 }
 
-let arr = [1, 3, 0, 2, 4, 0, 3, 0, 2];
-let arr1 = [0,0,1,2,3,0]
-let arr2 = [1,2,3,4,5]
-moveZeros(arr2);
-console.log("Move Zeros: ",arr2);
+let arr = [1, 3, 0,0, 2, 4, 0, 3, 0, 2];
+let arr1 = [0, 0, 1, 2, 3, 0];
+let arr2 = [1, 2, 3, 4, 5];
+let arr3 = [3 ,5, 0 ,0, 4]
+moveZeros(arr1);
+console.log("Move Zeros: ", arr1);
