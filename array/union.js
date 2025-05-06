@@ -33,6 +33,7 @@ console.log("Union Of Two Arrays:" , unionOfArr(arr1,arr2))
 
 //  two pointer approch optimal
 
+/*
 function unionOfTwoArr(arr1,arr2){
     // arr1.sort()
     // arr2.sort()
@@ -77,3 +78,13 @@ function unionOfTwoArr(arr1,arr2){
 let arr1 = [1,2,2,3,3,4]
 let arr2 = [1,3,3,4,5]
 console.log("Union Of Two Arrays:" , unionOfTwoArr(arr1,arr2))
+
+*/
+
+function unionOFTwoArray(arr1,arr2){
+    return [...new Set([...arr1,...arr2])]
+}
+
+let arr1 = [1,2,2,3,3,4]
+let arr2 = [1,3,3,4,5]
+console.log("Union Of Two Arrays:" , unionOFTwoArray(arr1,arr2))
