@@ -22,6 +22,7 @@ let arr1 = [1,1]
 console.log(numberApearsOnce(arr1));
 */
 
+/*
 function numberApearsOnce(arr){
     let map = new Map()
     for(let i = 0; i < arr.length; i++){
@@ -38,4 +39,18 @@ function numberApearsOnce(arr){
 }
 let arr = [1,1,2,3,3,4,4]
 // let arr1 = [1,1]
+console.log(numberApearsOnce(arr));
+*/
+
+
+function numberApearsOnce(arr){
+    let xor = 0
+    for(let i = 0; i < arr.length; i++){
+      xor ^= arr[i]
+    }
+    return xor
+}
+
+let arr = [1,1,2,3,3,4,4]
+let arr1 = [1,1]
 console.log(numberApearsOnce(arr));
