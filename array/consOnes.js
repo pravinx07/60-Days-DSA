@@ -19,6 +19,8 @@
   }
 
   let arr = [1,1,0,1,1,1,0,1,1]
+  let arr1 = [0,1,1,1,0,0,0]
+  let arr2 = [1]
 
-  console.log(consecutiveOnes(arr))
+  console.log(consecutiveOnes(arr2))
   
