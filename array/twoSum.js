@@ -21,16 +21,45 @@ let arr = [2,6,4,8,11]
 
 
 
-var twoSum = function(nums, target) {
-    let map = new Map()
-    for(let i = 0; i < nums.length; i++){
-        let complement  = target - nums[i]
-        if(map.has(complement)){
-            return [map.get(complement),i]
+// var twoSum = function(nums, target) {
+//     let map = new Map()
+//     for(let i = 0; i < nums.length; i++){
+//         map.set(nums[i],i)
+//         let complement  = target - nums[i]
+//         console.log(complement);
+        
+//         if(map.has(complement)){
+            
+//             console.log(map);
+//             return [map.get(complement),i]
+            
+//         }
+//     }
+//     return []
+// };
+
+// console.log(twoSum(arr,14));
+
+
+//  two pointer approch greedy aproch
+
+function twoSum(arr,target){
+    arr.sort((a,b)=> a - b)
+    
+    
+    
+    let left = 0
+    let right = arr.length - 1
+
+    while(left < right){
+        let sum = arr[left] + arr[right]
+        if(sum === target) {
+            return "Yes"
         }
-        map.set(nums[i],i)
+        else if (sum < target) left++
+        else right--
     }
-    return []
-};
+    return "No"
+}
 
 console.log(twoSum(arr,14));
