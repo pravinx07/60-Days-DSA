@@ -9,18 +9,18 @@ function subArrSum(arr,num){
     let len = 0
     let n = arr.length
     for(let i = 0; i < n; i++){
-       for(let j = i; j < n; j++){
         sum = 0
-        for(k = i; k < j; k++){
-            sum += arr[k]
+       for(let j = i; j < n; j++){
+        
+            sum += arr[j]
             if(sum === num) return Math.max(len,j-i+1)
-        }
+        
        }
     }
     console.log(len);
     
 }
 
-let arr = [1,2,3,1,1,4,5]
-let num = 2
+let arr = [1,2,3,1,1,1,4,5]
+let num = 3
 console.log(subArrSum(arr,num));
