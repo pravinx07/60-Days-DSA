@@ -3,6 +3,7 @@ arr = [0,2,1,0,0,1,2,0,1,2]
 arr = [0,0,0,0,1,1,1,2,2,2]
  */
 
+/*
 function sortArry(arr) {
   let n = arr.length;
   let cnt0 = 0;
@@ -24,3 +25,27 @@ function sortArry(arr) {
 let arr = [0, 2, 1, 0, 0, 1, 2, 0, 1, 2];
 
 console.log(sortArry(arr));
+*/
+
+function sortArr(arr){
+    let n = arr.length
+    let low = 0 ,mid = 0, high = n - 1
+
+    while(mid <= high){
+        if(arr[mid] === 0){
+            [arr[low],arr[mid]] = [arr[mid],arr[low]]
+            low++
+            mid++
+        }else if(arr[mid] === 1) {
+            mid++
+        }else{
+            [arr[mid],arr[high]] = [arr[high],arr[low]]
+            high--
+        }
+    }
+    return arr
+}
+
+let arr = [0, 2, 1, 0, 0, 1, 2, 0, 1, 2];
+
+console.log(sortArr(arr));
