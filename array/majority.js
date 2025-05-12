@@ -14,6 +14,7 @@ Input: nums = [2,2,1,1,1,2,2]
 Output: 2
  */
 
+/*
 function majority(arr){
     let n = arr.length
     for(let i = 0; i < n; i++){
@@ -31,3 +32,20 @@ function majority(arr){
 
 let arr = [2,2,1,1,1,2,2]
 console.log(majority(arr));
+*/
+
+function majorityEle(arr){
+    let map = new Map
+    for(let num of arr){
+        let count = map.get(num) || 0
+        map.set(num,count+1)
+        if(map.get(num) > Math.floor(arr.length / 2)) return num
+    }
+    // console.log(map);
+    
+}
+
+let arr = [2,2,1,1,1,2,2]
+let arr2 = [6,5,5]
+let arr3 = [10,9,9,9,10]
+console.log("The Majority Element is:",majorityEle( arr3));
