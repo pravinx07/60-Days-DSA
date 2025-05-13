@@ -33,7 +33,10 @@ function longestCommonPrefix(str){
     
 }
 
+let str1 = ["alone"]
+
 let str = ["flower","flow","flight"]
  let strs = ["dog","racecar","car"]
 console.log(longestCommonPrefix(str));
 console.log(longestCommonPrefix(strs));
+console.log(longestCommonPrefix(str1))
