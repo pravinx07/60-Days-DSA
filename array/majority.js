@@ -34,6 +34,7 @@ let arr = [2,2,1,1,1,2,2]
 console.log(majority(arr));
 */
 
+/*
 function majorityEle(arr){
     let map = new Map
     for(let num of arr){
@@ -49,3 +50,30 @@ let arr = [2,2,1,1,1,2,2]
 let arr2 = [6,5,5]
 let arr3 = [10,9,9,9,10]
 console.log("The Majority Element is:",majorityEle( arr3));
+*/
+
+function majorityEle(arr){
+  let cnt = 0
+  let el = null
+  for(let i = 0; i < arr.length; i++){
+    if(cnt === 0){
+        cnt = 1
+        el = arr[i]
+    }else if(arr[i] === el){
+        cnt++
+    }else{
+        cnt--
+    }
+  }
+  let cnt1 = 0
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === el) cnt1++
+  }
+  if(cnt1 > Math.floor(arr.length / 2) ) return el
+  return -1
+}
+
+let arr = [2,2,1,1,1,2,2]
+let arr2 = [6,5,5]
+let arr3 = [10,9,9,9,10]
+console.log("The Majority Element is:",majorityEle( arr));
