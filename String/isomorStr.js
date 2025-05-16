@@ -47,3 +47,26 @@ function isIsoMorphic(s,t){
 console.log(isIsoMorphic("egg","add"));
 console.log(isIsoMorphic("foo","bar"));
 console.log(isIsoMorphic("paper","title"));
+
+
+
+var isIsomorphic = function (s, t) {
+    if (s.length !== t.length) return false;
+
+    const mapS = new Array(256).fill(-1);
+    const mapT = new Array(256).fill(-1);
+
+    for (let i = 0; i < s.length; i++) {
+        const charS = s.charCodeAt(i);
+        const charT = t.charCodeAt(i);
+
+        if (mapS[charS] === -1 && mapT[charT] === -1) {
+            mapS[charS] = charT;
+            mapT[charT] = charS;
+        } else if (mapS[charS] !== charT || mapT[charT] !== charS) {
+            return false;
+        }
+    }
+
+    return true;
+};
