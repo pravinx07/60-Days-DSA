@@ -10,6 +10,7 @@ Input: s = "rat", t = "car"
 Output: false
 
 */
+/*
 function isAnagram(s, t) {
   if (s.length !== t.length) return false;
 
@@ -27,6 +28,29 @@ function isAnagram(s, t) {
 
   return true;
 }
+
+let s = "anagram",
+  t = "nagaram";
+let s1 = "rat",
+  t1 = "car";
+console.log(isAnagram(s, t));
+console.log(isAnagram(s1, t1));
+*/
+
+const isAnagram = (s, t) => {
+  if (s.length !== t.length) return false;
+
+  const count = new Array(26).fill(0);
+
+  for (let i = 0; i < s.length; i++) {
+    count[s.charCodeAt(i) - 97]++;
+
+    count[t.charCodeAt(i) - 97]--;
+  }
+
+
+  return count.every((character) => character === 0);
+};
 
 let s = "anagram",
   t = "nagaram";
