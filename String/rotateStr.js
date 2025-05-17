@@ -20,4 +20,7 @@ function rotateStr(str,goal)
 
 
 let s = "abcde", goal = "cdeab"
+let s1 = "abcde", goal1 = "abced"
 console.log(rotateStr(s,goal));
+console.log(rotateStr(s1,goal1));
+console.log(rotateStr("","a"));
