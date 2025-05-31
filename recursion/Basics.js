@@ -5,16 +5,26 @@
    recursion tree => f() => <=f() =><= f() =><= f() base condition stop and went back
  */
   
-function nTimesName(i,n){
-    if(i > n) return
-    // console.log(i)
-    console.log("Pravin");
+// function nTimesName(i,n){
+//     if(i > n) return
+//     // console.log(i)
+//     console.log("Pravin");
     
     
-    nTimesName(i+1,n)
+//     nTimesName(i+1,n)
     
+// }
+
+// // console.log(nTimesName(1,3));
+// nTimesName(1,5)
+
+
+
+function printNtoOne(i,n){
+  if(i < 1) return
+  console.log(i);
+  printNtoOne(i - 1, n)
+  
 }
 
-// console.log(nTimesName(1,3));
-nTimesName(1,5)
-
+printNtoOne(4,4)
