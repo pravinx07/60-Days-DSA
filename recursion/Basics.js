@@ -4,24 +4,17 @@
    stackOverflow => stack is out of range means program is waiting in the stack for execution
    recursion tree => f() => <=f() =><= f() =><= f() base condition stop and went back
  */
-
-   /*
-   function nTimes(n){
-    console.log("Printed",n);
+  
+function nTimesName(i,n){
+    if(i > n) return
+    // console.log(i)
+    console.log("Pravin");
     
-    n+=1
-    setTimeout(()=>nTimes(2,),1000)
-   }
-
-   nTimes()
-   */
-
-
-function nTimesName(i,name){
-    if(name > i) return
-    nTimesName()
-    i++
+    
+    nTimesName(i+1,n)
+    
 }
 
-console.log(nTimesName(3,"Pravin"));
+// console.log(nTimesName(1,3));
+nTimesName(1,5)
 
