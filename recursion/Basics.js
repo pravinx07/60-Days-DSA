@@ -18,7 +18,7 @@
 // // console.log(nTimesName(1,3));
 // nTimesName(1,5)
 
-
+/*
 function printNtoOne(i,n){
   if(i < 1) return
   printNtoOne(i - 1, n)
@@ -27,3 +27,16 @@ function printNtoOne(i,n){
 }
 
 printNtoOne(4,4)
+*/
+
+
+
+
+function printNtoOne(i,n){
+  if(i > n) return
+  printNtoOne(i + 1, n)
+  console.log(i);
+  
+}
+
+printNtoOne(1,4)
