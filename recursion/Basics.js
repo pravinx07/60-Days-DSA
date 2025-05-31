@@ -19,11 +19,10 @@
 // nTimesName(1,5)
 
 
-
 function printNtoOne(i,n){
   if(i < 1) return
-  console.log(i);
   printNtoOne(i - 1, n)
+  console.log(i);
   
 }
 
