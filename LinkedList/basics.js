@@ -40,6 +40,38 @@ class LinkedList {
     this.length++
   }
 
+  find(value){
+    let current = this.head
+    while(current){
+        if(current.value === value){
+            return current
+        }
+        current = current.next
+    }
+    return null
+  }
+
+  delete(value){
+    if(!this.head) return 
+
+    if(this.head.value === value){
+        this.head = this.head.next;
+        this.length--;
+        return;
+    }
+
+    let current = this.head;
+    while(current.next && current.next.value !== value){
+     current = current.next;
+    }
+
+    if(current.next){
+        current.next = current.next.next;
+        this.length--;
+    }
+    
+  }
+
   print() {
     let current = this.head;
     let result = "";
@@ -54,9 +86,13 @@ class LinkedList {
 }
 
 const list = new LinkedList();
+list.prepend(10)
+list.prepend(6)
 list.append(32);
 list.append(2);
-list.append(1);
-list.append(2);
-list.prepend(6)
+
+
+list.delete(21)
+// list.find(3)
+// console.log(list.find(21))
 list.print();
