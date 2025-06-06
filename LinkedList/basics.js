@@ -110,6 +110,30 @@ class LinkedList {
     return arr;
   }
 
+deletAt(index){
+  if(index < 0 || index > this.length || !this.head){
+    console.log("Invalid index or list is empty");
+    return null
+  }
+
+  let current = this.head
+  let previous = null
+  let count = 0
+
+  if(index === 0){
+    this.head = current.next
+  }else{
+    while(count < index){
+      previous = current
+      current = current.next
+      count ++
+    }
+    previous.next = current.next
+  }
+
+  this.length--
+}
+
   isAEmpty() {
     if (!this.length) return true;
     return false;
@@ -136,6 +160,9 @@ list.append(2);
 // list.delete(21)
 // console.log(list.find(21))
 list.insertAt(3,9);
+list.print();
+
+list.deletAt(2)
 list.print();
 // console.log(list.find(6))
 // console.log(list.toArray())
