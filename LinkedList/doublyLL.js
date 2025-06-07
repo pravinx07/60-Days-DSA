@@ -41,6 +41,44 @@ class LinkedList{
     this.length++
   }
 
+  delete(value){
+    if(!this.head ) return null
+
+    if(this.head.value === value){
+      const toDelete = this.head
+      this.head =  this.head.next
+      
+      
+    
+    if(this.head){
+      this.head.prev = null
+    }else{
+      this.tail = null
+    }
+    this.length--
+    return toDelete
+  }
+
+
+    let current = this.head.next
+    while(current){
+      if(current.value === value){
+        current.prev.next = current.next
+        if(current.next){
+          current.next.prev = current.prev
+        }else{
+          this.tail = current.prev
+        }
+        this.length--
+        return current
+      }
+      current = current.next
+    }
+
+
+    return null
+  }
+
   printBackword(){
     let current = this.tail
     let result = ''
@@ -68,6 +106,11 @@ let list = new LinkedList()
 list.prepend(23)
 list.prepend(13)
 list.prepend(32)
+list.append(10)
+list.delete(10)
+list.delete(13)
+list.delete(23)
+list.delete(32)
 
 list.printForword()
 list.printBackword()
