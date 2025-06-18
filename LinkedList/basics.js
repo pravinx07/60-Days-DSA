@@ -138,6 +138,28 @@ deletAt(index){
     if (!this.length) return true;
     return false;
   }
+  reverseList(){
+    let temp = this.head
+    let prev = null
+    let result = ""
+    while(temp !== null){
+    result += temp.value + " <- "
+    let front = temp.next
+    temp.next = prev
+    prev = temp
+    temp = front
+    }
+    // console.log(result);
+    console.log(prev);
+    
+    
+
+  }
+
+  deleteAllOccur(value,target){
+    
+  }
+
   print() {
     let current = this.head;
     let result = "";
@@ -164,6 +186,7 @@ list.print();
 
 list.deletAt(2)
 list.print();
+list.reverseList()
 // console.log(list.find(6))
 // console.log(list.toArray())
 // console.log("is Empty", list.isAEmpty());

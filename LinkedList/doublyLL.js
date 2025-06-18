@@ -73,6 +73,33 @@ class LinkedList {
     return null;
   }
 
+deleteAllOccurance(target){
+  let temp = this.head
+  while(temp !== null){
+    if(temp.value === target){
+      if (temp === this.head){
+        this.head = this.head.next
+        if(this.head) this.head.prev = null
+      }
+
+      let nextNode = temp.next
+      let prevNode = temp.prev
+
+      if(nextNode !== null) nextNode.prev = prevNode
+      if(prevNode !== null) prevNode.next = nextNode
+      temp = nextNode
+
+      if(temp === this.tail){
+        this.tail = prevNode
+      }
+    }
+    else{
+      temp = temp.next
+    }
+  }
+  return this.head
+}
+
   printBackword() {
     let current = this.tail;
     let result = "";
@@ -99,10 +126,20 @@ list.prepend(23);
 list.append(10);
 list.prepend(13);
 list.prepend(32);
-// list.delete(10);
-list.delete(13);
-// list.delete(23);
-// list.delete(32);
+list.append(10);
+list.prepend(10);
+
+
+
+
 
 list.printForword();
 list.printBackword();
+// console.log("Befor deletion :", list.printForword());/
+// 
+list.deleteAllOccurance(10)
+// console.log("After deletion :", list.printForword());
+list.printForword();
+list.printBackword();
+
+
