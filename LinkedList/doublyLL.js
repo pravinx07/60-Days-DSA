@@ -100,6 +100,26 @@ deleteAllOccurance(target){
   return this.head
 }
 
+sumOfPair(target){
+  let temp1 = this.head
+  
+  let sum = []
+  
+  while(temp1 !== null ){
+    let temp2 = temp1.next
+    while(temp2 !== null){
+      if(temp1.value + temp2.value === target){
+        sum.push(temp1.value, temp2.value)
+      }
+      temp2 = temp2.next
+    }
+
+    temp1 = temp1.next
+  }
+  return sum
+
+}
+
   printBackword() {
     let current = this.tail;
     let result = "";
@@ -122,12 +142,19 @@ deleteAllOccurance(target){
 }
 
 let list = new LinkedList();
-list.prepend(23);
-list.append(10);
-list.prepend(13);
-list.prepend(32);
-list.append(10);
-list.prepend(10);
+// list.prepend(23);
+// list.append(10);
+// list.prepend(13);
+// list.prepend(32);
+// list.append(10);
+// list.prepend(10);
+
+list.append(1)
+list.append(2)
+list.append(3)
+
+list.append(4)
+list.append(9)
 
 
 
@@ -137,9 +164,9 @@ list.printForword();
 list.printBackword();
 // console.log("Befor deletion :", list.printForword());/
 // 
-list.deleteAllOccurance(10)
+// list.deleteAllOccurance(10)
 // console.log("After deletion :", list.printForword());
-list.printForword();
-list.printBackword();
+console.log("Sum of Pairsis : ",list.sumOfPair(5))
+
 
 
