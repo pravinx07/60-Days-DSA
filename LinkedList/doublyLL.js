@@ -100,24 +100,42 @@ deleteAllOccurance(target){
   return this.head
 }
 
-sumOfPair(target){
-  let temp1 = this.head
+sumOfPair(sum){
+  // let temp1 = this.head
   
-  let sum = []
+  // let sum = []
   
-  while(temp1 !== null ){
-    let temp2 = temp1.next
-    while(temp2 !== null){
-      if(temp1.value + temp2.value === target){
-        sum.push(temp1.value, temp2.value)
-      }
-      temp2 = temp2.next
-    }
+  // while(temp1 !== null ){
+  //   let temp2 = temp1.next
+  //   while(temp2 !== null){
+  //     if(temp1.value + temp2.value === target){
+  //       sum.push(temp1.value, temp2.value)
+  //     }
+  //     temp2 = temp2.next
+  //   }
 
-    temp1 = temp1.next
+  //   temp1 = temp1.next
+  // }
+  // return sum
+  // console.log(this.tail.value);
+
+  let left = this.head
+  let right = this.tail
+   let sumArr = []
+  while(left.value < right.value){
+   if(left.value + right.value === sum){
+    sumArr.push(left.value, right.value)
+    left = left.next
+    right = right.prev
+   }else if(left.value + right.value < sum){
+     left = left.next
+   }else{
+     right = right.prev
+   }
   }
-  return sum
-
+  
+  console.log("Pairs of sum element: ",sumArr);
+  
 }
 
   printBackword() {
@@ -166,7 +184,8 @@ list.printBackword();
 // 
 // list.deleteAllOccurance(10)
 // console.log("After deletion :", list.printForword());
-console.log("Sum of Pairsis : ",list.sumOfPair(5))
+// console.log("Sum of Pairsis : ",list.sumOfPair(5))
+list.sumOfPair(5)
 
 
 
