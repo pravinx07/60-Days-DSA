@@ -28,6 +28,10 @@ class Stack{
        return this.stack.length === 0
     }
 
+    size(){
+        return this.stack.length
+    }
+
     print(){
         let arr = []
 
@@ -50,7 +54,7 @@ stack.push(2)
 // console.log(stack.print);
 
 // console.log(stack.pop())
-
-console.log(stack.peek())
+stack.size()
+console.log(stack.size())
 stack.print()
 // console.log("Stack: ", stack.print())
