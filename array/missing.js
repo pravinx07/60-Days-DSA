@@ -50,7 +50,7 @@ missingVal(arr,m)
 
 */
 
-// missing valur
+// missing value
 
 function missingVal(arr,n){
     // let n = arr.length
