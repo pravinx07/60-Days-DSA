@@ -19,8 +19,18 @@ Output: 6
 Explanation: The last word is "joyboy" with length 6. */
 
 function StrLength(s){
- newS = s.trim().split(" ")
-    return newS[newS.length-1].length
+//  newS = s.trim().split(" ")
+//     return newS[newS.length-1].length
+
+let i = s.length-1
+let length = 0
+
+while(i >= 0 && s[i] == " ") i--   // skip trailing spaces
+while(i >= 0 && s[i] !== " "){   // count length of last word
+    length++
+    i--
+}
+return length
 
 }
 
