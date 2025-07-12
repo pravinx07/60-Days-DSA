@@ -60,74 +60,101 @@ A*(B+C*D)-E
 
 // infix to prefix conversion
 
-function reverseS(str) {
-  return str
-    .split("")
-    .reverse()
-    .map((char) => {
-      if (char === "(") return ")";
-      if (char === ")") return "(";
-      return char;
-    })
-    .join("");
-}
+// function reverseS(str) {
+//   return str
+//     .split("")
+//     .reverse()
+//     .map((char) => {
+//       if (char === "(") return ")";
+//       if (char === ")") return "(";
+//       return char;
+//     })
+//     .join("");
+// }
 
-function infixToPostfix(e) {
-  const precedance = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
-  const isRightAssociative = (ch) => ch === "^";
-  const isOperator = (c) => ["+", "-", "*", "/", "^"].includes(c);
-  const isOperand = (c) => /[A-Za-z0-9]/.test(c);
-  let stack = [];
-  let output = "";
+// function infixToPostfix(e) {
+//   const precedance = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
+//   const isRightAssociative = (ch) => ch === "^";
+//   const isOperator = (c) => ["+", "-", "*", "/", "^"].includes(c);
+//   const isOperand = (c) => /[A-Za-z0-9]/.test(c);
+//   let stack = [];
+//   let output = "";
 
-  for (let i = 0; i < e.length; i++) {
-    token = e[i];
-    if (token === " ") continue;
+//   for (let i = 0; i < e.length; i++) {
+//     token = e[i];
+//     if (token === " ") continue;
 
-    if (isOperand(token)) {
-      output += token;
-    } else if (token === "(") {
-      stack.push(token);
-    } else if (token === ")") {
-      while (stack.length && stack[stack.length - 1] !== "(") {
-        output += stack.pop();
-      }
-      stack.pop();
-    } else if (isOperator(token)) {
-      while (
-        stack.length &&
-        isOperator(stack[stack.length - 1]) &&
-        ((!isRightAssociative(token) &&
-          precedance[token] <= precedance[stack[stack.length - 1]]) ||
-          (isRightAssociative(token) &&
-            precedance[token] < precedance[stack[stack.length - 1]]))
-      ) {
-        output += stack.pop()
-      }
-      stack.push(token)
+//     if (isOperand(token)) {
+//       output += token;
+//     } else if (token === "(") {
+//       stack.push(token);
+//     } else if (token === ")") {
+//       while (stack.length && stack[stack.length - 1] !== "(") {
+//         output += stack.pop();
+//       }
+//       stack.pop();
+//     } else if (isOperator(token)) {
+//       while (
+//         stack.length &&
+//         isOperator(stack[stack.length - 1]) &&
+//         ((!isRightAssociative(token) &&
+//           precedance[token] <= precedance[stack[stack.length - 1]]) ||
+//           (isRightAssociative(token) &&
+//             precedance[token] < precedance[stack[stack.length - 1]]))
+//       ) {
+//         output += stack.pop()
+//       }
+//       stack.push(token)
+//     }
+//   }
+//   while(stack.length){
+//     output += stack.pop()
+//   }
+
+
+//   return output
+// }
+
+
+// function infixToPrefix(infix){
+//     let revserIn = reverseS(infix);
+//     let postfix = infixToPostfix(revserIn)
+//     return reverseS(postfix)
+// }
+
+
+// const e = "A+B*C"
+// console.log(infixToPrefix(e));                 // +A*BC
+// console.log(infixToPrefix("(A+B)*(C-D)"));           // *+AB-CD
+// console.log(infixToPrefix("A+B*C-D"));               // -+A*BC D
+// console.log(infixToPrefix("a+b*(c^d-e)^(f+g*h)-i")); // -+a*b^-^cde+f*ghi
+
+
+
+
+// postfix to infix
+
+function postfixToInfix(pEx){
+  let stack = []
+  const isOperator = (ch) => ['+', '-', '*', '/', '^'].includes(ch);
+
+  for(let i = 0; i < pEx.length; i++){
+    const ch = pEx[i]
+    if(ch === " ") continue;
+
+    if(/[a-zA-Z0-9]/.test(ch)){
+      stack.push(ch)
+    }else if(isOperator(ch)){
+      let right = stack.pop()
+      let left = stack.pop()
+      let ex = `(${left}${ch}${right})`
+      stack.push(ex)
     }
-  }
-  while(stack.length){
-    output += stack.pop()
-  }
 
-
-  return output
+  }
+  return stack.pop()
 }
 
-
-function infixToPrefix(infix){
-    let revserIn = reverseS(infix);
-    let postfix = infixToPostfix(revserIn)
-    return reverseS(postfix)
-}
-
-
-const e = "A+B*C"
-console.log(infixToPrefix(e));                 // +A*BC
-console.log(infixToPrefix("(A+B)*(C-D)"));           // *+AB-CD
-console.log(infixToPrefix("A+B*C-D"));               // -+A*BC D
-console.log(infixToPrefix("a+b*(c^d-e)^(f+g*h)-i")); // -+a*b^-^cde+f*ghi
-
-
-// console.log(e.length);
+console.log(postfixToInfix("ab+c*"));         // ((a + b) * c)
+console.log(postfixToInfix("abc*+d-"));       // ((a + (b * c)) - d)
+console.log(postfixToInfix("ab+cd+*"));       // ((a + b) * (c + d))
