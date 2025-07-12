@@ -133,7 +133,7 @@ A*(B+C*D)-E
 
 
 // postfix to infix
-
+/*
 function postfixToInfix(pEx){
   let stack = []
   const isOperator = (ch) => ['+', '-', '*', '/', '^'].includes(ch);
@@ -158,3 +158,32 @@ function postfixToInfix(pEx){
 console.log(postfixToInfix("ab+c*"));         // ((a + b) * c)
 console.log(postfixToInfix("abc*+d-"));       // ((a + (b * c)) - d)
 console.log(postfixToInfix("ab+cd+*"));       // ((a + b) * (c + d))
+*/
+
+// Prefix to Infix 
+
+function prefixToInfix(ex){
+   let stack = []
+  const isOperator = (ch) => ['+', '-', '*', '/', '^'].includes(ch);
+
+  for(let i = ex.length - 1; i >= 0; i--){
+    const ch = ex[i]
+
+    if(ch === " ") continue;
+
+    if(/[a-zA-Z0-9]/.test(ch)){
+      stack.push(ch)
+    }else if(isOperator(ch)){
+      const left = stack.pop();
+      let right = stack.pop()
+      let ex = `(${left}${ch}${right})`
+      stack.push(ex)
+    }
+  }
+  return stack.pop()
+}
+
+console.log(prefixToInfix("-+a*bc d"));          // ((a + (b * c)) - d)
+console.log(prefixToInfix("*+ab+cd"));           // ((a + b) * (c + d))
+console.log(prefixToInfix("+a*bc"));             // (a + (b * c))
+console.log(prefixToInfix("-+a*b^-^cde+f*ghi")); // ((a + (b * ((c ^ d - e) ^ (f + (g * h))))) - i)
