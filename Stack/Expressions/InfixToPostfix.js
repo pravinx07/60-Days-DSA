@@ -1,6 +1,6 @@
 /*conver infix to postfix */
 
-
+/*
 function infixToPost(e){
     const precedance = {"+":1, "-":1, "*":2, "/":2, "^":3}
     let stack = []
@@ -45,7 +45,7 @@ console.log(infixToPost(ex4));
 console.log(infixToPost(ex5));
 console.log(infixToPost(ex6));
 
-
+*/
 
 /*
 A + (B * C)
@@ -57,3 +57,77 @@ A+B*C-D
 A*(B+C*D)-E
 
 (A+B*C)^D*/
+
+// infix to prefix conversion
+
+function reverseS(str) {
+  return str
+    .split("")
+    .reverse()
+    .map((char) => {
+      if (char === "(") return ")";
+      if (char === ")") return "(";
+      return char;
+    })
+    .join("");
+}
+
+function infixToPostfix(e) {
+  const precedance = { "+": 1, "-": 1, "*": 2, "/": 2, "^": 3 };
+  const isRightAssociative = (ch) => ch === "^";
+  const isOperator = (c) => ["+", "-", "*", "/", "^"].includes(c);
+  const isOperand = (c) => /[A-Za-z0-9]/.test(c);
+  let stack = [];
+  let output = "";
+
+  for (let i = 0; i < e.length; i++) {
+    token = e[i];
+    if (token === " ") continue;
+
+    if (isOperand(token)) {
+      output += token;
+    } else if (token === "(") {
+      stack.push(token);
+    } else if (token === ")") {
+      while (stack.length && stack[stack.length - 1] !== "(") {
+        output += stack.pop();
+      }
+      stack.pop();
+    } else if (isOperator(token)) {
+      while (
+        stack.length &&
+        isOperator(stack[stack.length - 1]) &&
+        ((!isRightAssociative(token) &&
+          precedance[token] <= precedance[stack[stack.length - 1]]) ||
+          (isRightAssociative(token) &&
+            precedance[token] < precedance[stack[stack.length - 1]]))
+      ) {
+        output += stack.pop()
+      }
+      stack.push(token)
+    }
+  }
+  while(stack.length){
+    output += stack.pop()
+  }
+
+
+  return output
+}
+
+
+function infixToPrefix(infix){
+    let revserIn = reverseS(infix);
+    let postfix = infixToPostfix(revserIn)
+    return reverseS(postfix)
+}
+
+
+const e = "A+B*C"
+console.log(infixToPrefix(e));                 // +A*BC
+console.log(infixToPrefix("(A+B)*(C-D)"));           // *+AB-CD
+console.log(infixToPrefix("A+B*C-D"));               // -+A*BC D
+console.log(infixToPrefix("a+b*(c^d-e)^(f+g*h)-i")); // -+a*b^-^cde+f*ghi
+
+
+// console.log(e.length);
