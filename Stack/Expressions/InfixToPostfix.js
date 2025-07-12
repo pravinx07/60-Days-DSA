@@ -211,7 +211,35 @@ function postfixToPrefix(ex){
   return stack.pop()
 }
 
-console.log(postfixToPrefix("ab+c*"));        // *+abc
-console.log(postfixToPrefix("ab+cd+*"));      // *+ab+cd
-console.log(postfixToPrefix("abc*+d-"));      // -+a*bc d
+// console.log(postfixToPrefix("ab+c*"));        // *+abc
+// console.log(postfixToPrefix("ab+cd+*"));      // *+ab+cd
+// console.log(postfixToPrefix("abc*+d-"));      // -+a*bc d
 // console.log(postfixToPrefix("abc^d-e-fgh*+^*+i-")); // -+a*b^-^cde+f*ghi
+
+
+function prefixToPostfix(prefix) {
+  const stack = [];
+  const isOperator = (ch) => ['+', '-', '*', '/', '^'].includes(ch);
+
+  for (let i = prefix.length - 1; i >= 0; i--) {
+    const ch = prefix[i];
+    if (ch === ' ') continue;
+
+    if (/[a-zA-Z0-9]/.test(ch)) {
+      stack.push(ch);
+    } else if (isOperator(ch)) {
+      const left = stack.pop();
+      const right = stack.pop();
+      const expr = left + right + ch;
+      stack.push(expr);
+    }
+  }
+
+  return stack.pop();
+}
+
+// Test cases
+console.log(prefixToPostfix("+a*bc"));           // abc*+
+console.log(prefixToPostfix("*+ab+cd"));         // ab+cd+*
+console.log(prefixToPostfix("-+a*bc d"));        // abc*+d-
+console.log(prefixToPostfix("-+a*b^-^cde+f*ghi")); // abc*de^-fgh*+^-+i-
