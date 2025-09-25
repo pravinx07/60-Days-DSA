@@ -62,7 +62,9 @@ class MaxPriorityQueue{
         const max = this.heap[0];
         let end = this.heap.pop();
 
-        if(this.heap.length > 0){this.heap[0] = end;
+        if(this.heap.length > 0){
+            
+        this.heap[0] = end;
         this.heapiFyDown();
     }
 
@@ -127,8 +129,9 @@ pq.enqueue("xyz",0)
 pq.enqueue("x",3)
 pq.enqueue("a",1)
 pq.enqueue("z",8)
+pq.enqueue("c",8)
 
-pq.dequeue();
+// pq.dequeue();
 console.log(pq.heap);
 // console.log(pq.isEmpty());
 console.log(pq.front());
