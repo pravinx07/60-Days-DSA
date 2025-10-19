@@ -26,7 +26,7 @@ function fibbonacci(n){
   }
   return dp[n]
 }
-let n = 3
+let n = 12
 console.log(fibbonacci(n));
 
 
@@ -48,5 +48,3 @@ function fib(n){
 }
 
 console.log(fib(n));
-
-
