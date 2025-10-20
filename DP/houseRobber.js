@@ -26,3 +26,19 @@ var rob = function (nums) {
 
 let nums = [1,2,3,1]
 console.log(rob(nums));
+
+
+// space optimization
+var rob = function(nums) {
+    let prev1 = 0, prev2 = 0;
+
+    for(let num of nums){
+        let temp = Math.max(prev1, prev2 + num)
+        prev2 = prev1;
+        prev1 = temp;
+    }
+
+    return prev1;
+};
+
+console.log(rob(nums));
