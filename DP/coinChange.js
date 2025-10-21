@@ -16,14 +16,18 @@ Output: 0
 */
 
 
-// with recursion it give TLE
+// with recursion it give TLE so used DP  and Map also give TLE so used  simple object 
 let coinChange = (coins,amount) => {
     let n = coins.length;
+    let dp = {}
 
     let fn = (remAmount) => {
         if(remAmount === 0) return 0;
         if(remAmount < 0) return -1
-       
+        
+        if(remAmount in dp){
+            return dp[remAmount]
+        }
         let minCoins = Infinity
         for(let i = 0; i < n; i++){
             let res = fn(remAmount - coins[i])
@@ -31,7 +35,8 @@ let coinChange = (coins,amount) => {
                 minCoins = Math.min(minCoins , 1 + res)
             }
         }
-        return minCoins === Infinity ? -1 : minCoins;
+        dp[remAmount] = minCoins === Infinity ? -1 : minCoins;
+        return dp[remAmount]
     }
    return fn(amount)
 }
