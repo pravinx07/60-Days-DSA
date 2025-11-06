@@ -19,7 +19,9 @@ function squareRootOfX(x){
     let r = Math.floor(x / 2);
 
     while(l <= r){
-        let mid = Math.floor((l + r) / 2);
+        // handle edge cases
+        // overflow check of integer because some langauges have integer size limit
+        let mid = l + Math.floor((r - l) / 2);
         if(x === mid ** 2) {
             return mid;
         }else if(x < mid ** 2){
