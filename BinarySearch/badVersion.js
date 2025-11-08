@@ -22,21 +22,59 @@ Input: n = 1, bad = 1
 Output: 1
 */
 
-function isBadVersion(n, version) {
-    let l = 1; 
-    let r = n;
-    while(l < r){
-        let mid = l + Math.floor((r - l) / 2)
+// function isBadVersion(n, version) {
+//     let l = 1; 
+//     let r = n;
+//     while(l < r){
+//         let mid = l + Math.floor((r - l) / 2)
 
-        if(mid === version) return true
-        else if(mid < version){
+//         if(mid === version) return true
+//         else if(mid < version){
+//             l = mid + 1
+//         }else{
+//             r = mid
+//         }
+//     }
+// }
+
+// let n = 5;
+// let bad = 4;
+// console.log(isBadVersion(n, bad));
+
+/**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+var solution = function (isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function (n) {
+        let l = 1;
+        let r = n;
+
+        while(l < r){
+            let mid = l + Math.floor((r - l ) / 2)
+            let bad = isBadVersion(mid)
+
+           if(!bad){
             l = mid + 1
-        }else{
-            r = mid
+           }else{
+            r = mid;
+           }
         }
-    }
-}
+        return r;
 
-let n = 5;
-let bad = 4;
-console.log(isBadVersion(n, bad));
+    };
+};
