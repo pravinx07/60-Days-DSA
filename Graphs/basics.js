@@ -35,4 +35,31 @@ graph.addEdge("A","B")
 graph.addEdge("A","C")
 graph.addEdge("B","D")
 
-console.log("Graph: ", graph.adjList);
+// console.log("Graph: ", graph.adjList);
+
+
+/*
+Representation 2: Adjacency Matrix
+use 2d matrix
+    A B C
+A  [0 1 1]
+B  [1 0 0]
+C  [1 0 0]
+*/
+
+const nodes = ["A","B","C"];
+const size = nodes.length;
+
+
+// create 2d matrix with all zeros
+const matrix = Array.from({length:size},()=>Array(size).fill(0))
+
+// add connection A -> B (0 -> 1)
+matrix[0][1] = 1;
+matrix[1][0] = 1; 
+
+//  add connection A -> C (0 -> 2)
+matrix[0][2] = 1
+matrix[2][0] = 1;
+
+console.log(matrix);
